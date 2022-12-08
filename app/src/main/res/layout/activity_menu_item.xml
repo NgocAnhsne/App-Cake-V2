@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".activity_menu_item"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+
+        <ImageView
+            android:id="@+id/imgHinh"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_macaronphap"/>
+        <TextView
+            android:id="@+id/txtTen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bánh Macaron Pháp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/red_dark"
+            android:paddingLeft="25dp"/>
+        <TextView
+            android:id="@+id/txtGia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="320.000 đ"
+            android:textSize="15sp"
+            android:paddingLeft="25dp"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+
+        <ImageView
+            android:id="@+id/imgHinh2"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_banhtaomy"/>
+        <TextView
+            android:id="@+id/txtTen2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bánh Táo Mỹ"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/red_dark"
+            android:paddingLeft="25dp"/>
+        <TextView
+            android:id="@+id/txtGia2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="230.000 đ"
+            android:textSize="15sp"
+            android:paddingLeft="25dp"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+</LinearLayout>
