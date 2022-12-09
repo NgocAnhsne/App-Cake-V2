@@ -1,48 +1,35 @@
 package deso2.nhom10.appcake;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter_menu extends BaseAdapter  {
-    private Context context;
-    private int layout;
-    private List<activity_menu.activityMenu> menuList = new ArrayList<activity_menu.activityMenu>();
+public class BanhAdapter extends ArrayAdapter<Banh> {
+    private Activity context;
+    private int idLayout;
+    private List<Banh> list = new ArrayList<Banh>();
     final int CODE_REQUEST = 1;
 
-    public Adapter_menu(Context context, int layout, List<activity_menu.activityMenu> menuList) {
+    public BanhAdapter(Activity context, int idLayout, List<Banh> list) {
+        super(context, idLayout, list);
+
         this.context = context;
-        this.layout = layout;
-        this.menuList = menuList;
-    }
-
-    @Override
-    public int getCount() {
-        return menuList.size();
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
+        this.idLayout = idLayout;
+        this.list = list;
     }
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater)  context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(layout, null);
+        view = inflater.inflate(idLayout, null);
 
         //Ánh xạ
         ImageView imgHinh = view.findViewById(R.id.imgHinh);
@@ -54,7 +41,7 @@ public class Adapter_menu extends BaseAdapter  {
         TextView txtGia2 = view.findViewById(R.id.txtGia2);
 
         //đổ dữ liệu
-        activity_menu.activityMenu acMenu = menuList.get(i);
+        Banh acMenu = list.get(i);
         return view;
     }
 
