@@ -2,8 +2,11 @@ package deso2.nhom10.appcake;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
@@ -32,49 +35,41 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 
-import deso2.nhom10.appcake.adapter.ViewPageAdapter;
+import deso2.nhom10.appcake.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
-    BottomNavigationView bottomNavigationView;
-    ViewPager viewPager;
-
-    BottomNavigationView nav;
-    ListView list;
-
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.root);
 
         //footer
-
-        bottomNavigationView = findViewById(R.id.bottomNavBar);
-        viewPager = findViewById(R.id.view_pager);
-        ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        viewPager.setAdapter(viewPageAdapter);
-
-        nav = findViewById(R.id.view_pager);
-        nav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.icHome:
-                        break;
-                    case R.id.icOrder:
-
-                        Intent intent = new Intent(MainActivity.this, ProductActivity.class);
-                        break;
-                    case R.id.icMenu:
-                        break;
-                    case R.id.icAccount:
-                        break;
-                }
-                return true;
+        replaceFragment(new HomeFragment());
+        binding.bottomNavBar.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.icHome:
+                    replaceFragment(new HomeFragment());
+                    break;
+                case R.id.icOrder:
+                    replaceFragment(new OrderFragment());
+                    break;
+                case R.id.icMenu:
+                    replaceFragment(new MenuFragment());
+                    break;
+                case R.id.icAccount:
+                    replaceFragment(new ProfileFragment());
+                    break;
             }
+            return true;
         });
-
     }
-
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentLayout, fragment);
+        fragmentTransaction.commit();
+    }
 }

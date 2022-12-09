@@ -37,7 +37,7 @@ public class MenuFragment extends Fragment {
         list.add(new Banh(R.drawable.ic_banhsocolate, "Bánh socolate", 180.000));
         list.add(new Banh(R.drawable.ic_banhtraicaykho, "Bánh trái cây khô", 300.000));
 
-        adapter = new BanhAdapter(this, R.layout.fragment_menu_item, list);
+//        adapter = new BanhAdapter(this, R.layout.fragment_menu_item, list);
 
         lvMenu.setAdapter(adapter);
 
