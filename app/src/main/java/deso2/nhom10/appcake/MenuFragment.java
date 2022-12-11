@@ -29,13 +29,13 @@ public class MenuFragment extends Fragment {
         // Inflate the layout for this fragment
         lvMenu = getView().findViewById(R.id.lvMenu);
 
-        list.add(new Banh(R.drawable.ic_macaronphap, "Bánh Macaron Pháp", 320.000));
-        list.add(new Banh(R.drawable.ic_banhtaomy, "Bánh Táo Mỹ", 230.000));
-        list.add(new Banh(R.drawable.ic_traicaymy, "Bánh trái cây", 300.000));
-        list.add(new Banh(R.drawable.ic_banhdau, "Bánh dâu tây", 200.000));
-        list.add(new Banh(R.drawable.ic_banhmamxoi, "Bánh mâm xôi", 500.000));
-        list.add(new Banh(R.drawable.ic_banhsocolate, "Bánh socolate", 180.000));
-        list.add(new Banh(R.drawable.ic_banhtraicaykho, "Bánh trái cây khô", 300.000));
+        list.add(new Banh(1,R.drawable.ic_macaronphap, "Bánh Macaron Pháp", "320.000","M"));
+        list.add(new Banh(2,R.drawable.ic_banhtaomy, "Bánh Táo Mỹ", "230.000","M"));
+        list.add(new Banh(3,R.drawable.ic_traicaymy, "Bánh trái cây", "300.000","M"));
+        list.add(new Banh(4,R.drawable.ic_banhdau, "Bánh dâu tây", "200.000","M"));
+        list.add(new Banh(5,R.drawable.ic_banhmamxoi, "Bánh mâm xôi", "500.000","M"));
+        list.add(new Banh(6,R.drawable.ic_banhsocolate, "Bánh socolate", "180.000","M"));
+        list.add(new Banh(7,R.drawable.ic_banhtraicaykho, "Bánh trái cây khô", "300.000","M"));
 
 //        adapter = new BanhAdapter(this, R.layout.fragment_menu_item, list);
 
